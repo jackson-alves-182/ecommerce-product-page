@@ -1,0 +1,49 @@
+header,
+nav,
+ul,
+.info-user{
+  display:flex;
+  align-items:center;
+}
+
+header{
+  max-width:1300px;
+  width:80%;
+  height:80px;
+
+  justify-self: center;
+  gap:clamp(1rem, 4vw, 5rem);
+
+  border-bottom:2px solid var(--light-grayish-blue);
+}
+
+header > img{
+  height:1.7rem;
+}
+
+nav{
+  width:100%;
+
+  justify-content:space-between;
+  gap:2.8rem;
+}
+
+nav ul{
+  gap:clamp(1rem, 2vw, 5rem);
+}
+
+nav ul li{
+  padding:3rem 0;
+}
+nav ul li:hover{
+  border-bottom:4px solid var(--orange);
+  cursor:pointer;
+}
+
+.info-user{
+  gap:clamp(1rem, 3vw, 3rem);
+}
+
+.info-user > img {
+  width:5rem;
+}
