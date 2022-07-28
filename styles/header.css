@@ -210,9 +210,11 @@ nav{
   .info-user{
     justify-self: flex-end;
   }
+
+  .cart-info{
+    left:-25rem;
+  }
 }
-
-
 
 @keyframes left-to-right {
   0%{
@@ -235,6 +237,6 @@ nav{
   }
   100%{
     opacity:1;
-    transform: translateY(0)  scale(1);
+    transform: translateY(0) scale(1);
   }
 }
