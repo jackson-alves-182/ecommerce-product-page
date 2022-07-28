@@ -1,7 +1,7 @@
 import{
   menu,
   menuIcon,
-  closeMenu
+  closeMenu,
 } from "./elements.js"
 
 export default function(){
@@ -16,5 +16,21 @@ export default function(){
 
   closeMenu.addEventListener('click', function(){
     document.querySelector('.menu-container').classList.add('hide');
+
+    document.querySelector('.navi').prepend(menuIcon);
+    menuIcon.style.display = "none";
   })
+
+  function resizeCheck(){
+    var widthOut = window.innerWidth;
+    if((widthOut > 625 )&&(menuIcon.style.display == "none")){
+      menuIcon.style.display = "flex";
+    }
+    else if((widthOut < 625)&&(menuIcon.style.display == "flex")){
+      menuIcon.style.display = "none";
+    }
+  }
+  window.addEventListener('resize', resizeCheck);
+
+  
 }
