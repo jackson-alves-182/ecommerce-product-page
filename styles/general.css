@@ -37,6 +37,6 @@ body,button{
 
 @media(max-width:800px){
   body{
-    padding:2rem;
+    padding:0 2rem;
   }
 }

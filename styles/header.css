@@ -74,6 +74,9 @@ nav ul li:hover{
 }
 
 @media(max-width:625px){
+  header{
+    height:7rem;
+  }
   .menu{
     display:block;
   }
@@ -85,7 +88,6 @@ nav ul li:hover{
     
     justify-content:unset;
   }
-
   .info-user{
     justify-self:flex-end;
   }
