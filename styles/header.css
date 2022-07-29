@@ -202,14 +202,20 @@ nav{
     display: block;
   }
   .header-list{
+    margin:5rem 0 0 0;
+
     display: none;
 
     flex-direction:column;
-    gap:0;
+    gap:2rem;
+
+    align-items:flex-start;
   }
   .header-list li{
     padding:0;
+    font-weight:700;
   }
+
   nav{
     display: grid;
     

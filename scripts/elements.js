@@ -1,5 +1,5 @@
 const menu = document.querySelector('.menu');
-const closeMenu = document.querySelector('.close-menu');
+const closeMenuIcon = document.querySelector('.close-menu');
 
 const cartIcon = document.querySelector('#icon-cart');
 const cartInfo = document.querySelector('.cart-info');
@@ -10,7 +10,7 @@ const menuIcon = document.querySelector('.header-list');
 export{
   menu,
   menuIcon,
-  closeMenu,
+  closeMenuIcon,
   cartIcon,
   cartInfo,
   cartProduct

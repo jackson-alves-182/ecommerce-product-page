@@ -1,7 +1,7 @@
 import{
   menu,
   menuIcon,
-  closeMenu,
+  closeMenuIcon,
   cartIcon,
   cartInfo,
   cartProduct
@@ -11,17 +11,14 @@ export default function(){
 
   menu.addEventListener('click', function(){
     document.querySelector('.menu-container').classList.remove('hide');
-    closeMenu.classList.remove('hide');
+    closeMenuIcon.classList.remove('hide');
 
     document.querySelector('.menu-container').appendChild(menuIcon);
     menuIcon.style.display = "flex";
   })
 
-  closeMenu.addEventListener('click', function(){
-    document.querySelector('.menu-container').classList.add('hide');
-
-    document.querySelector('.navi').prepend(menuIcon);
-    menuIcon.style.display = "none";
+  closeMenuIcon.addEventListener('click', function(){
+    closeMenu();
   })
 
   cartIcon.addEventListener('click', function(){
@@ -34,12 +31,20 @@ export default function(){
     cartInfo.classList.add('hide');
   })
 
+  function closeMenu(){
+    document.querySelector('.menu-container').classList.add('hide');
+
+    document.querySelector('.navi').prepend(menuIcon);
+    menuIcon.style.display = "none";
+  }
+
   function resizeCheck(){
     var widthOut = window.innerWidth;
     if((widthOut > 625 )&&(menuIcon.style.display == "none")){
       menuIcon.style.display = "flex";
     }
     else if((widthOut < 625)&&(menuIcon.style.display == "flex")){
+      closeMenu();
       menuIcon.style.display = "none";
     }
   }
