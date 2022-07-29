@@ -73,7 +73,7 @@
     </nav>
   </header>
   
-  <main class="hide">
+  <main class="">
     <aside class="imgs-container">
       <div class="main-img">
         <img src="/images/image-product-1.jpg">
@@ -94,15 +94,22 @@
         These low-profile sneakers are your perfect casual wear companion. Featuring a 
         durable rubber outer sole, they’ll withstand everything the weather can offer.
       </p>
-      <h3>$<span class="price">125.00</span> <span class="discount">50%</span></h3>
-      <h6 class="full-price">250.00</h6>
-
-      <div id="quant-add-cart">
-        <img id="icon-plus" src="/images/icon-plus.svg">
-        <h5>0</h5>
-        <img id="icon-minus" src="/images/icon-minus.svg">
+      <div class="unit-price">
+        <h3>$<span class="price">125.00</span><span class="discount">50%</span></h3>
+        <h6 class="total-price">$250.00</h6>
       </div>
-      <button id="btn-add-cart"><img src="/images/icon-cart.svg"> Add to Cart</button>
+
+      <div class="section-btns">
+        <div id="quant-add-cart">
+          <img id="icon-plus" src="/images/icon-plus.svg">
+          <h5>0</h5>
+          <img id="icon-minus" src="/images/icon-minus.svg">
+        </div>
+        <button id="btn-add-cart">
+          <img src="/images/icon-cart-btn.svg">
+           Add to Cart
+        </button>
+      </div>
     </section>
 
   </main>
