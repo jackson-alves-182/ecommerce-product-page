@@ -44,7 +44,7 @@ export default function(){
 
   function resizeCheck(){
     var widthOut = window.innerWidth;
-    if((widthOut > 625 )&&(menuIcon.style.display == "none")){
+    if((widthOut => 625 )&&(menuIcon.style.display == "none")){
       menuIcon.style.display = "flex";
     }
     else if((widthOut < 625)&&(menuIcon.style.display == "flex")){

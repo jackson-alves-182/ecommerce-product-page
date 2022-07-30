@@ -21,6 +21,7 @@ header{
   border-bottom:2px solid var(--light-grayish-blue);
 
   margin-bottom:8rem;
+  padding:0 2rem;
 }
 .menu-container{
   width:260px;
@@ -198,6 +199,8 @@ nav{
 @media(max-width:625px){
   header{
     height:7rem;
+
+    margin-bottom:unset;
   }
   .menu{
     display: block;
