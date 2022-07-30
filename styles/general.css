@@ -25,6 +25,8 @@ ul{
 body{
   display:grid;
   background:var(--white);
+
+  padding:0 2rem;
 }
 body,button{
   font-family:'Kumbh Sans', sans-serif;
@@ -33,10 +35,4 @@ body,button{
 
 .hide{
   display:none;
-}
-
-@media(max-width:800px){
-  body{
-    padding:0 2rem;
-  }
 }

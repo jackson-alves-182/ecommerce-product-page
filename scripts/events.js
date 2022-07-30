@@ -10,11 +10,7 @@ import{
 export default function(){
 
   menu.addEventListener('click', function(){
-    document.querySelector('.menu-container').classList.remove('hide');
-    closeMenuIcon.classList.remove('hide');
-
-    document.querySelector('.menu-container').appendChild(menuIcon);
-    menuIcon.style.display = "flex";
+    openMenu();
   })
 
   closeMenuIcon.addEventListener('click', function(){
@@ -36,6 +32,14 @@ export default function(){
 
     document.querySelector('.navi').prepend(menuIcon);
     menuIcon.style.display = "none";
+  }
+
+  function openMenu(){
+    document.querySelector('.menu-container').classList.remove('hide');
+    closeMenuIcon.classList.remove('hide');
+
+    document.querySelector('.menu-container').appendChild(menuIcon);
+    menuIcon.style.display = "flex";
   }
 
   function resizeCheck(){
