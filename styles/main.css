@@ -26,7 +26,6 @@ aside{
 
 .main-img-container{
   position:relative;
-
 }
 
 .icon-container{
@@ -82,8 +81,13 @@ aside{
   border-radius:1rem;
 }
 
+#main-image:hover,
+.thumb:hover{
+  cursor:pointer;
+}
 .selected{
   border:3px solid var(--orange);
+  filter:contrast(0.5);
 }
 
 section{
