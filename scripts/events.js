@@ -6,7 +6,8 @@ import{
   cartInfo,
   cartProduct,
   mainImage,
-  iconPrevious
+  iconPrevious,
+  iconNext
 } from "./elements.js"
 
 export default function(){
@@ -30,7 +31,16 @@ export default function(){
   })
 
   iconPrevious.addEventListener('click', function(){
-    
+    var status = "previous";
+    navigationArrow(status);
+  })
+
+  iconNext.addEventListener('click', function(){
+    var status = "next";
+    navigationArrow(status);
+  })
+
+  function navigationArrow(status){
     var currentImage = mainImage.src;
 
     var countString = currentImage.length;
@@ -39,17 +49,30 @@ export default function(){
     currentImage = currentImage.slice(countString);
     countString = currentImage.slice(22, 23);
 
-    if(countString > 1  && countString <= 4){ 
+    if((status == "previous")&&(countString > 1  && countString <= 4)){ 
+      previousImage(currentImage ,countString)
+    }
+    else if((status == "next")&&(countString >= 1  && countString <= 3)){
+     nextImage(currentImage, countString);
+    }
+  }
 
-      var auxCount = countString;
-      currentImage = currentImage.replace(countString, auxCount - 1);
-  
-      mainImage.src = currentImage;
+  function previousImage(currentImage ,countString){
+    var auxCount = countString;
+
+    currentImage = currentImage.replace(countString, auxCount - 1);
+    mainImage.src = currentImage;
+
+    countString = auxCount;
+  }
+  function nextImage(currentImage ,countString){
+    var auxCount = countString;
       
-      countString = auxCount;
-    } 
-  })
+    currentImage = currentImage.replace(countString, Number(auxCount) + 1);
 
+    mainImage.src = currentImage;
+    countString = auxCount;
+  }
 
   function closeMenu(){
     document.querySelector('.menu-container').classList.add('hide');
@@ -98,9 +121,6 @@ export default function(){
     }
 
   }*/
-
-
- 
   window.addEventListener('resize', resizeCheck);
 }
   

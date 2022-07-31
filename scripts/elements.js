@@ -9,6 +9,7 @@ const menuIcon = document.querySelector('.header-list');
 
 const mainImage = document.querySelector('#main-image')
 const iconPrevious = document.querySelector('.previous');
+const iconNext = document.querySelector('.next');
 
 
 export{
@@ -19,5 +20,6 @@ export{
   cartInfo,
   cartProduct,
   mainImage,
-  iconPrevious
+  iconPrevious,
+  iconNext
 }
