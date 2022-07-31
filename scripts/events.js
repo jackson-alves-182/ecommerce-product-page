@@ -4,7 +4,9 @@ import{
   closeMenuIcon,
   cartIcon,
   cartInfo,
-  cartProduct
+  cartProduct,
+  mainImage,
+  iconPrevious
 } from "./elements.js"
 
 export default function(){
@@ -26,6 +28,28 @@ export default function(){
   cartInfo.addEventListener('mouseout', function(){
     cartInfo.classList.add('hide');
   })
+
+  iconPrevious.addEventListener('click', function(){
+    
+    var currentImage = mainImage.src;
+
+    var countString = currentImage.length;
+    countString = countString - 27;
+
+    currentImage = currentImage.slice(countString);
+    countString = currentImage.slice(22, 23);
+
+    if(countString > 1  && countString <= 4){ 
+
+      var auxCount = countString;
+      currentImage = currentImage.replace(countString, auxCount - 1);
+  
+      mainImage.src = currentImage;
+      
+      countString = auxCount;
+    } 
+  })
+
 
   function closeMenu(){
     document.querySelector('.menu-container').classList.add('hide');
@@ -54,6 +78,7 @@ export default function(){
   }
 
   function checkCart(quantCart){
+    
     if(quantCart.textContent == 0){
       cartProduct.innerHTML = "<div class='empty-cart'>Your cart is empty</div>";
       cartInfo.classList.remove('hide');
@@ -61,9 +86,21 @@ export default function(){
     else{
       cartInfo.classList.remove('hide');
     }
+    
   }
 
-  window.addEventListener('resize', resizeCheck);
+  /*function windowCart(){
+    if(cartInfo.classList.contains('hide')){
+      console.log("NOPS");
+    }
+    else{
+      cartInfo.classList.add('hide');
+    }
 
-  
+  }*/
+
+
+ 
+  window.addEventListener('resize', resizeCheck);
 }
+  

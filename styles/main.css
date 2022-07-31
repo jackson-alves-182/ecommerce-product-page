@@ -18,13 +18,52 @@ aside{
   gap:3rem;
 }
 
-.main-img,
+.main-img-container,
 .mini-img{
   display:flex;
   max-width:45rem;
 }
 
-.main-img > img{
+.main-img-container{
+  position:relative;
+}
+
+.icon-container{
+  position:absolute;
+
+  display:none;
+
+  background:#FFFFFF;
+
+  width:40px;
+  height:40px;
+
+  border-radius:999px;
+}
+
+.icon-container > img{
+  width:10px;
+  height:13px;
+ 
+  justify-self: center;
+  align-self: center;
+ }
+
+.previous{
+    left: 5%;
+    top: 50%;
+    transform: translate(-5%,-50%);
+}
+
+.next{
+  right: 5%;
+  top: 50%;
+  transform: translate(-5%,-50%);
+}
+
+
+
+.main-img-container > img{
   width:100%;
 
   border-radius:1.5rem;
@@ -168,17 +207,19 @@ section #btn-add-cart img{
  aside{
   align-items:center;
  }
- .main-img{
+ .main-img-container{
   max-width:62.5rem;
   width: 100vw;
-
  }
- .main-img > img{
+ .main-img-container > img{
   border-radius:unset;
   height:350px;
 
   object-fit:cover;
   object-position: center;
+ }
+ .icon-container{
+  display:grid;
  }
   .mini-img{
   display:none;
