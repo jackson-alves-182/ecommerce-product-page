@@ -7,10 +7,14 @@ const cartProduct = document.querySelector('.cart-product');
 
 const menuIcon = document.querySelector('.header-list');
 
-const mainImage = document.querySelector('#main-image')
+const mainImage = document.querySelector('#main-image');
 const iconPrevious = document.querySelector('.previous');
 const iconNext = document.querySelector('.next');
 
+const thumb1 = document.querySelector('#thumb-1');
+const thumb2 = document.querySelector('#thumb-2');
+const thumb3 = document.querySelector('#thumb-3');
+const thumb4 = document.querySelector('#thumb-4');
 
 export{
   menu,
@@ -21,5 +25,9 @@ export{
   cartProduct,
   mainImage,
   iconPrevious,
-  iconNext
+  iconNext,
+  thumb1,
+  thumb2,
+  thumb3,
+  thumb4
 }

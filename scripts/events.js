@@ -7,7 +7,11 @@ import{
   cartProduct,
   mainImage,
   iconPrevious,
-  iconNext
+  iconNext,
+  thumb1,
+  thumb2,
+  thumb3,
+  thumb4
 } from "./elements.js"
 
 export default function(){
@@ -40,23 +44,58 @@ export default function(){
     navigationArrow(status);
   })
 
+  thumb1.addEventListener('click', function(){
+    selectedImage(thumb1);
+  })
+  thumb2.addEventListener('click', function(){
+    selectedImage(thumb2);
+  })
+  thumb3.addEventListener('click', function(){
+    selectedImage(thumb3);
+  })
+  thumb4.addEventListener('click', function(){
+    selectedImage(thumb4);
+  })
+
+
+  function selectedImage(thumb){
+    selection(thumb);
+   
+    var currentImage = thumb.src;
+    var countString = currentImage.length;
+
+    countString = countString - 37;
+    currentImage = currentImage.slice(countString);
+
+    currentImage = currentImage.slice(1,23) + ".jpg";
+    mainImage.src = currentImage;
+  }
+
+  function selection(thumb){
+    for(var i=0; i<4; i++){
+      document.querySelectorAll('.thumb')[i].classList.remove('selected');
+    }
+
+    thumb.classList.add('selected');
+  }
+
   function navigationArrow(status){
     var currentImage = mainImage.src;
 
     var countString = currentImage.length;
     countString = countString - 27;
-
     currentImage = currentImage.slice(countString);
+
     countString = currentImage.slice(22, 23);
 
     if((status == "previous")&&(countString > 1  && countString <= 4)){ 
-      previousImage(currentImage ,countString)
+      previousImage(currentImage ,countString);
     }
     else if((status == "next")&&(countString >= 1  && countString <= 3)){
-     nextImage(currentImage, countString);
+      nextImage(currentImage, countString);
     }
   }
-
+ 
   function previousImage(currentImage ,countString){
     var auxCount = countString;
 
@@ -65,6 +104,7 @@ export default function(){
 
     countString = auxCount;
   }
+
   function nextImage(currentImage ,countString){
     var auxCount = countString;
       
@@ -112,15 +152,6 @@ export default function(){
     
   }
 
-  /*function windowCart(){
-    if(cartInfo.classList.contains('hide')){
-      console.log("NOPS");
-    }
-    else{
-      cartInfo.classList.add('hide');
-    }
-
-  }*/
   window.addEventListener('resize', resizeCheck);
 }
   

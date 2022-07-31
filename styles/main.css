@@ -26,6 +26,7 @@ aside{
 
 .main-img-container{
   position:relative;
+
 }
 
 .icon-container{
@@ -41,12 +42,18 @@ aside{
   border-radius:999px;
 }
 
-.icon-container > img{
+.icon-container > svg{
   width:10px;
   height:13px;
  
   justify-self: center;
   align-self: center;
+ }
+ .icon-container:hover{
+  cursor:pointer;
+ }
+ .icon-container:hover > svg path{
+    stroke:var(--orange);
  }
 
 .previous{
@@ -54,14 +61,11 @@ aside{
     top: 50%;
     transform: translate(-5%,-50%);
 }
-
 .next{
   right: 5%;
   top: 50%;
   transform: translate(-5%,-50%);
 }
-
-
 
 .main-img-container > img{
   width:100%;
@@ -76,6 +80,10 @@ aside{
 .mini-img > img{
   max-width:clamp(6rem, 6rem + 4vw,9.8rem);
   border-radius:1rem;
+}
+
+.selected{
+  border:3px solid var(--orange);
 }
 
 section{
@@ -229,4 +237,15 @@ section #btn-add-cart img{
   align-items:center;
   justify-content:space-between;
  }
+}
+
+@keyframes showsUp{
+  0%{
+    opacity:0;
+   
+  }
+  100%{
+    opacity:1;
+   
+  }
 }

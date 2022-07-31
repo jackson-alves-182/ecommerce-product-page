@@ -47,6 +47,11 @@ header > img{
 .menu{
   display:none;
 }
+.menu:hover,
+.close-menu:hover{
+  cursor:pointer;
+}
+
 nav{
   width:100%;
 
