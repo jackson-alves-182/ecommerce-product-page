@@ -1,12 +1,15 @@
 const menu = document.querySelector('.menu');
+const menuIcon = document.querySelector('.header-list');
 const closeMenuIcon = document.querySelector('.close-menu');
 
 const cartIcon = document.querySelector('#icon-cart');
 const cartInfo = document.querySelector('.cart-info');
 const cartProduct = document.querySelector('.cart-product');
 
-const menuIcon = document.querySelector('.header-list');
+const modal = document.querySelector('.modal');
+const closeModal = document.querySelector('.close-modal');
 
+const imagesContainer = document.querySelector('.imgs-container');
 const mainImage = document.querySelector('#main-image');
 const iconPrevious = document.querySelector('.previous');
 const iconNext = document.querySelector('.next');
@@ -16,6 +19,8 @@ const thumb2 = document.querySelector('#thumb-2');
 const thumb3 = document.querySelector('#thumb-3');
 const thumb4 = document.querySelector('#thumb-4');
 
+
+
 export{
   menu,
   menuIcon,
@@ -23,6 +28,9 @@ export{
   cartIcon,
   cartInfo,
   cartProduct,
+  modal,
+  closeModal,
+  imagesContainer,
   mainImage,
   iconPrevious,
   iconNext,

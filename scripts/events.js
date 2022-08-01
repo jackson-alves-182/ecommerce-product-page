@@ -5,6 +5,9 @@ import{
   cartIcon,
   cartInfo,
   cartProduct,
+  modal,
+  closeModal,
+  imagesContainer,
   mainImage,
   iconPrevious,
   iconNext,
@@ -42,6 +45,14 @@ export default function(){
   iconNext.addEventListener('click', function(){
     var status = "next";
     navigationArrow(status);
+  })
+
+  mainImage.addEventListener('click', function(){
+
+    imagesContainer.classList.add('main-selection');
+    modal.appendChild(imagesContainer);
+    modal.style.display = "block";
+    closeModal.style.display = "block";
   })
 
   thumb1.addEventListener('click', function(){

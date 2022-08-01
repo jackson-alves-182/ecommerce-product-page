@@ -10,12 +10,22 @@ main{
 }
 
 aside{
+  position:relative;
   max-width:55rem;
   max-height:60rem;
 
   display:flex;
   flex-direction:column;
   gap:3rem;
+}
+.close-modal{
+  display:none;
+  
+  position:absolute;
+  top:-4rem;
+  right:1rem;
+
+  width:2rem;
 }
 
 .main-img-container,
@@ -31,7 +41,7 @@ aside{
 .icon-container{
   position:absolute;
 
-  display:none;
+  display:grid;
 
   background:#FFFFFF;
 
@@ -68,8 +78,39 @@ aside{
 
 .main-img-container > img{
   width:100%;
-
   border-radius:1.5rem;
+}
+
+/*  BEGIN TEST MODAL */
+
+.modal{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* END TEST MODAL */
+
+.main-selection{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+.main-selection .main-img-container,
+.main-selection .mini-img{
+  max-width:80rem;
+}
+.main-selection .mini-img{
+  justify-content: center;
+  gap:3rem;
 }
 
 .mini-img{
@@ -87,8 +128,9 @@ aside{
 }
 .selected{
   border:3px solid var(--orange);
-  filter:contrast(0.5);
+  filter:opacity(0.6);
 }
+
 
 section{
   margin-top:5rem;
