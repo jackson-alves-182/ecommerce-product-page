@@ -12,20 +12,19 @@ main{
 aside{
   position:relative;
   max-width:55rem;
-  max-height:60rem;
+  max-height:80rem;
 
   display:flex;
   flex-direction:column;
   gap:3rem;
 }
+
 .close-modal{
   display:none;
-  
+
   position:absolute;
   top:-4rem;
   right:1rem;
-
-  width:2rem;
 }
 
 .main-img-container,
@@ -39,18 +38,16 @@ aside{
 }
 
 .icon-container{
+  display:none;
+
   position:absolute;
 
-  display:grid;
-
   background:#FFFFFF;
-
   width:40px;
   height:40px;
 
   border-radius:999px;
 }
-
 .icon-container > svg{
   width:10px;
   height:13px;
@@ -59,16 +56,16 @@ aside{
   align-self: center;
  }
  .icon-container:hover{
-  cursor:pointer;
+    cursor:pointer;
  }
  .icon-container:hover > svg path{
     stroke:var(--orange);
  }
 
 .previous{
-    left: 5%;
-    top: 50%;
-    transform: translate(-5%,-50%);
+  left: 5%;
+  top: 50%;
+  transform: translate(-5%,-50%);
 }
 .next{
   right: 5%;
@@ -81,7 +78,7 @@ aside{
   border-radius:1.5rem;
 }
 
-/*  BEGIN TEST MODAL */
+/*  BEGIN  MODAL */
 
 .modal{
   display: none; /* Hidden by default */
@@ -94,9 +91,11 @@ aside{
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+  animation:showsUp ease-in 0.5s;
 }
 
-/* END TEST MODAL */
+/* END  MODAL */
 
 .main-selection{
   position:fixed;
@@ -107,6 +106,9 @@ aside{
 .main-selection .main-img-container,
 .main-selection .mini-img{
   max-width:80rem;
+}
+.main-selection .main-img-container{
+  height:55rem;
 }
 .main-selection .mini-img{
   justify-content: center;
@@ -236,6 +238,23 @@ section #btn-add-cart img{
   margin-right:5px;
 }
 
+@media(min-width:900px){
+  .icon-container{
+    width:50px;
+    height:50px;
+  }
+  .previous{
+    left: -4%;
+    top: 50%;
+    transform: translate(4%,-50%);
+  }
+  .next{
+    right: -3%;
+    top: 50%;
+    transform: translate(3%,-50%);
+  }
+}
+
 @media(max-width:800px){
   section{
     margin-top:0rem;
@@ -247,7 +266,6 @@ section #btn-add-cart img{
     height:10rem;
   }
 }
-
 @media(max-width:625px){
   main{
   flex-direction:column;

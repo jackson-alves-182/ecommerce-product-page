@@ -7,7 +7,7 @@ const cartInfo = document.querySelector('.cart-info');
 const cartProduct = document.querySelector('.cart-product');
 
 const modal = document.querySelector('.modal');
-const closeModal = document.querySelector('.close-modal');
+const closeMod = document.querySelector('.close-modal');
 
 const imagesContainer = document.querySelector('.imgs-container');
 const mainImage = document.querySelector('#main-image');
@@ -29,7 +29,7 @@ export{
   cartInfo,
   cartProduct,
   modal,
-  closeModal,
+  closeMod,
   imagesContainer,
   mainImage,
   iconPrevious,

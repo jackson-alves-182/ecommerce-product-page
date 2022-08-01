@@ -6,7 +6,7 @@ import{
   cartInfo,
   cartProduct,
   modal,
-  closeModal,
+  closeMod,
   imagesContainer,
   mainImage,
   iconPrevious,
@@ -48,12 +48,13 @@ export default function(){
   })
 
   mainImage.addEventListener('click', function(){
-
-    imagesContainer.classList.add('main-selection');
-    modal.appendChild(imagesContainer);
-    modal.style.display = "block";
-    closeModal.style.display = "block";
+    openModal();
   })
+
+   closeMod.addEventListener('click', function(){
+    closeModal();
+  })
+
 
   thumb1.addEventListener('click', function(){
     selectedImage(thumb1);
@@ -125,13 +126,6 @@ export default function(){
     countString = auxCount;
   }
 
-  function closeMenu(){
-    document.querySelector('.menu-container').classList.add('hide');
-
-    document.querySelector('.navi').prepend(menuIcon);
-    menuIcon.style.display = "none";
-  }
-
   function openMenu(){
     document.querySelector('.menu-container').classList.remove('hide');
     closeMenuIcon.classList.remove('hide');
@@ -139,7 +133,38 @@ export default function(){
     document.querySelector('.menu-container').appendChild(menuIcon);
     menuIcon.style.display = "flex";
   }
+  function closeMenu(){
+    document.querySelector('.menu-container').classList.add('hide');
 
+    document.querySelector('.navi').prepend(menuIcon);
+    menuIcon.style.display = "none";
+  }
+
+  function openModal(){
+    
+    for(var i=0; i<2; i++){
+      document.querySelectorAll('.icon-container')[i].style.display = "grid";
+    }
+
+    imagesContainer.classList.add('main-selection');
+    modal.appendChild(imagesContainer);
+
+    modal.style.display = "block";
+    closeMod.style.display = "block";
+  }
+
+  function closeModal(){
+
+    for(var i=0; i<2; i++){
+      document.querySelectorAll('.icon-container')[i].style.display = "none";
+    }
+
+    imagesContainer.classList.remove('main-selection');
+    document.querySelector('#main-container').prepend(imagesContainer);
+
+    modal.style.display = "none";
+    closeMod.style.display = "none";
+  }
   function resizeCheck(){
     var widthOut = window.innerWidth;
     if((widthOut => 625 )&&(menuIcon.style.display == "none")){
