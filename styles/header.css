@@ -37,7 +37,7 @@ header{
   animation: left-to-right 0.7s forwards;
 }
 .toggle-menu{
-  animation: right-to-left 1.2s forwards;
+  animation: right-to-left 1s forwards;
 }
 
 header > img{

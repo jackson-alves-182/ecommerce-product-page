@@ -22,7 +22,6 @@ export default function(){
   menu.addEventListener('click', function(){
     openMenu();
   })
-
   closeMenuIcon.addEventListener('click', function(){
     closeMenu();
   })
@@ -32,7 +31,6 @@ export default function(){
     
     checkCart(quantCart);
   })
-
   cartInfo.addEventListener('mouseout', function(){
     cartInfo.classList.add('hide');
   })
@@ -47,7 +45,6 @@ export default function(){
       mainImage.classList.remove('left-image');
     })
   })
-
   iconNext.addEventListener('click', function(){
     var status = "next";
     navigationArrow(status);
@@ -61,7 +58,6 @@ export default function(){
   mainImage.addEventListener('dblclick', function(){
     openModal();
   })
-
    closeMod.addEventListener('click', function(){
     closeModal();
   })
@@ -104,10 +100,8 @@ export default function(){
 
     var thumbSelection = (Number(auxCount) - 1) - 1;
     selection(thumbSelection);
-    //navigation selection
 
     mainImage.src = currentImage;
-
     countString = auxCount - 1;
   }
 
@@ -189,7 +183,7 @@ export default function(){
 
   function resizeCheck(){
     var widthOut = window.innerWidth;
-    if((widthOut => 625 )&&(menuIcon.style.display == "none")){
+    if((widthOut > 624 )&&(menuIcon.style.display == "none")){
       menuIcon.style.display = "flex";
     }
     else if((widthOut < 625)&&(menuIcon.style.display == "flex")){
