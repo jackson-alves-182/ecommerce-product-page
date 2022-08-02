@@ -130,11 +130,8 @@ aside{
   cursor:pointer;
 }
 .selected{
-  border:3px solid var(--orange);
-  filter:opacity(0.6);
+  border:4px solid var(--orange);
 }
-
-
 section{
   margin-top:5rem;
   max-width:60rem;

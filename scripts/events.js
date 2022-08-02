@@ -69,28 +69,6 @@ export default function(){
     selectedImage(thumb4);
   })
 
-
-  function selectedImage(thumb){
-    selection(thumb);
-   
-    var currentImage = thumb.src;
-    var countString = currentImage.length;
-
-    countString = countString - 37;
-    currentImage = currentImage.slice(countString);
-
-    currentImage = currentImage.slice(1,23) + ".jpg";
-    mainImage.src = currentImage;
-  }
-
-  function selection(thumb){
-    for(var i=0; i<4; i++){
-      document.querySelectorAll('.thumb')[i].classList.remove('selected');
-    }
-
-    thumb.classList.add('selected');
-  }
-
   function navigationArrow(status){
     var currentImage = mainImage.src;
 
@@ -104,26 +82,60 @@ export default function(){
       previousImage(currentImage ,countString);
     }
     else if((status == "next")&&(countString >= 1  && countString <= 3)){
-      nextImage(currentImage, countString);
+      nextImage(currentImage, countString); 
     }
   }
  
   function previousImage(currentImage ,countString){
     var auxCount = countString;
 
-    currentImage = currentImage.replace(countString, auxCount - 1);
+    currentImage = currentImage.replace(countString, Number(auxCount) - 1);
+
+    var thumbSelection = (Number(auxCount) - 1) - 1;
+    selection(thumbSelection);
+
     mainImage.src = currentImage;
 
-    countString = auxCount;
+    countString = auxCount - 1;
   }
 
   function nextImage(currentImage ,countString){
     var auxCount = countString;
       
     currentImage = currentImage.replace(countString, Number(auxCount) + 1);
+   
+    var thumbSelection = (Number(auxCount) + 1) - 1;
+    selection(thumbSelection);
 
     mainImage.src = currentImage;
-    countString = auxCount;
+
+    countString = auxCount + 1;
+  }
+
+  function selectedImage(thumb){
+    var currentImage = thumb.src;
+    var countString = currentImage.length;
+
+    countString = countString - 37;
+    currentImage = currentImage.slice(countString);
+
+    currentImage = currentImage.slice(1,23) + ".jpg";
+    mainImage.src = currentImage;
+
+    selection(thumb);
+  }
+
+  function selection(thumb){
+    for(var i=0; i<4; i++){
+      document.querySelectorAll('.thumb')[i].classList.remove('selected');
+    }
+
+    if(thumb >= 0 && thumb < 4){
+      document.querySelectorAll('.thumb')[thumb].classList.add('selected');
+    }
+    else{
+      thumb.classList.add('selected');
+    } 
   }
 
   function openMenu(){
