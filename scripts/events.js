@@ -47,7 +47,7 @@ export default function(){
     navigationArrow(status);
   })
 
-  mainImage.addEventListener('click', function(){
+  mainImage.addEventListener('dblclick', function(){
     openModal();
   })
 
@@ -141,10 +141,6 @@ export default function(){
   }
 
   function openModal(){
-    
-    for(var i=0; i<2; i++){
-      document.querySelectorAll('.icon-container')[i].style.display = "grid";
-    }
 
     imagesContainer.classList.add('main-selection');
     modal.appendChild(imagesContainer);
@@ -154,17 +150,13 @@ export default function(){
   }
 
   function closeModal(){
-
-    for(var i=0; i<2; i++){
-      document.querySelectorAll('.icon-container')[i].style.display = "none";
-    }
-
     imagesContainer.classList.remove('main-selection');
     document.querySelector('#main-container').prepend(imagesContainer);
 
     modal.style.display = "none";
     closeMod.style.display = "none";
   }
+
   function resizeCheck(){
     var widthOut = window.innerWidth;
     if((widthOut => 625 )&&(menuIcon.style.display == "none")){

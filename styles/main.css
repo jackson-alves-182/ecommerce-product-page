@@ -32,11 +32,9 @@ aside{
   display:flex;
   max-width:45rem;
 }
-
 .main-img-container{
   position:relative;
 }
-
 .icon-container{
   display:none;
 
@@ -113,6 +111,9 @@ aside{
 .main-selection .mini-img{
   justify-content: center;
   gap:3rem;
+}
+.main-selection .icon-container{
+  display:grid;
 }
 
 .mini-img{
@@ -310,6 +311,5 @@ section #btn-add-cart img{
   }
   100%{
     opacity:1;
-   
   }
 }
