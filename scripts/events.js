@@ -40,11 +40,22 @@ export default function(){
   iconPrevious.addEventListener('click', function(){
     var status = "previous";
     navigationArrow(status);
+
+    mainImage.classList.add('left-image');
+    
+    mainImage.addEventListener('animationend', function(){
+      mainImage.classList.remove('left-image');
+    })
   })
 
   iconNext.addEventListener('click', function(){
     var status = "next";
     navigationArrow(status);
+    mainImage.classList.add('right-image');
+
+    mainImage.addEventListener('animationend', function(){
+      mainImage.classList.remove('right-image');
+    })
   })
 
   mainImage.addEventListener('dblclick', function(){
@@ -145,12 +156,18 @@ export default function(){
 
     document.querySelector('.menu-container').appendChild(menuIcon);
     menuIcon.style.display = "flex";
+    document.querySelector('.menu-container').classList.remove('toggle-menu');
   }
   function closeMenu(){
-    document.querySelector('.menu-container').classList.add('hide');
-
+    document.querySelector('.menu-container').classList.add('toggle-menu');
     document.querySelector('.navi').prepend(menuIcon);
     menuIcon.style.display = "none";
+
+    //hide the mobile menu and change the display to none, after the animation end
+    document.querySelector('.toggle-menu').addEventListener('animationend', function(){
+      document.querySelector('.menu-container').classList.add('hide');
+    }, {once: true})
+
   }
 
   function openModal(){

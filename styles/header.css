@@ -30,11 +30,14 @@ header{
   z-index: 15;
 
   background:#FFFFFF;
-  box-shadow:300px 50px 0px 50px rgba(0,0,0,0.5);
+  box-shadow:1px 1px 0px 1000px rgba(0,0,0,0.5);
   
   padding:2rem 2rem;
 
   animation: left-to-right 0.7s forwards;
+}
+.toggle-menu{
+  animation: right-to-left 1.2s forwards;
 }
 
 header > img{
@@ -259,6 +262,21 @@ nav{
     transform: translateX(0px);
   }
 }
+
+@keyframes right-to-left {
+  0%{
+    transform: translateX(0);
+  }
+  50%{
+    opacity:0.4;
+  }
+  100%{
+    opacity:0;
+    transform: translateX(-300px);
+  }
+}
+
+
 
 @keyframes show-from-cart{
   0%{

@@ -35,10 +35,18 @@ aside{
 .main-img-container{
   position:relative;
 }
+.right-image{
+  animation:slides-right 0.5s;
+}
+.left-image{
+  animation:slides-left 0.5s;
+}
+
 .icon-container{
   display:none;
 
   position:absolute;
+  z-index: 1;
 
   background:#FFFFFF;
   width:40px;
@@ -304,9 +312,30 @@ section #btn-add-cart img{
 @keyframes showsUp{
   0%{
     opacity:0;
-   
   }
   100%{
     opacity:1;
+  }
+}
+
+@keyframes slides-right{
+  0%{
+    opacity:0;
+    transform:translateX(300px);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes slides-left{
+  0%{
+    opacity:0;
+    transform:translateX(-300px);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(0);
   }
 }
