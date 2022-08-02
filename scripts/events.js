@@ -93,6 +93,7 @@ export default function(){
 
     var thumbSelection = (Number(auxCount) - 1) - 1;
     selection(thumbSelection);
+    //navigation selection
 
     mainImage.src = currentImage;
 
