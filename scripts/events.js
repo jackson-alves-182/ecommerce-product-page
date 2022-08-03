@@ -67,11 +67,7 @@ export default function(){
     
     checkCart(quantCart);
   })
-  cartInfo.addEventListener('click', function(){
-    window.addEventListener('click',function(){
-      cartInfo.classList.add('hide');
-    })
-  })
+
   wipeCart.addEventListener('click', function(){
     cartNotification.textContent = "";
     cartNotification.classList.remove('cart-full');
@@ -136,8 +132,6 @@ export default function(){
     }
    
   })
-
-
 
   function addToCart(){
 
@@ -278,7 +272,10 @@ export default function(){
     }
     else{
       cartInfo.classList.remove('hide');
+      console.log("HOJAOJSAOSA")
     }
+    
+    
     
   }
 
