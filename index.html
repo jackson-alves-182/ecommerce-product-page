@@ -21,10 +21,10 @@
 
   <header>
     <img class="menu" src="/images/icon-menu.svg">
-    <img src="/images/logo.svg">
+    <img src="/images/logo.svg" alt="Logo Sneakers">
 
     <div class="menu-container hide">
-      <img class="close-menu hide" src="./images/icon-close.svg">
+      <img class="close-menu hide" src="./images/icon-close.svg" alt="image of a X">
     </div>
 
     <nav class="navi">
@@ -38,26 +38,28 @@
 
       <div class="info-user">
         <div class="cart">
-          <img id="icon-cart" src="/images/icon-cart.svg">
+          <img id="icon-cart" src="/images/icon-cart.svg" alt="drawing of a shopping cart">
           <div class="quant-product-cart">
-            <p class="quant-cart-notification">1</p>
+            <p class="quant-cart-notification"></p>
 
             <div class="cart-info hide">
               <h3>Cart</h3>
           
               <div class="cart-product">
                 <div>
-                  <img src="/images/image-product-1-thumbnail.jpg">
+                  <img id="img-cart" src="" alt="picture of a white and beige shoe in a dark orange background">
                   <div class="cart-product-info"> 
                     <p>
-                      Fall Limited Edition Sneakers 
-                      <span class="cart-price">$125.00</span>
+                      <span id="cart-description">
+                        
+                      </span>
+                      $<span id="cart-price"></span>
                       x
-                      <span class="cart-quant">3</span>
-                      <span class="cart-total">$375.00</span>
+                      <span id="cart-quant"></span>
+                      <span id="cart-total"></span>
                     </p>
                   </div>
-                  <img src="/images/icon-delete.svg">
+                  <img id="wipe-cart" src="/images/icon-delete.svg" alt="drawing of a trash bin">
                 </div>
                 <button id="checkout-btn">Checkout</button>
               </div>
@@ -67,7 +69,7 @@
           </div>
         </div>
 
-        <img src="/images/image-avatar.png"> 
+        <img src="/images/image-avatar.png" alt="picture of the user"> 
       </div>
 
     </nav>
@@ -80,7 +82,7 @@
     </div>
     <aside class="imgs-container">
       
-      <svg class="close-modal" width="18" height="20"
+      <svg alt="image of a X" class="close-modal" width="18" height="20"
         xmlns="http://www.w3.org/2000/svg">
         <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
         fill="#FFFFFF" fill-rule="evenodd"/>
@@ -90,7 +92,7 @@
           <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 1 2.3 6l5.8 6" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
         </button>
 
-        <img id="main-image" src="/images/image-product-1.jpg">
+        <img id="main-image" src="/images/image-product-1.jpg" alt="picture of a white and beige shoe in a dark orange background">
         
         <button class="icon-container next">
           <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 0.5 6 6-6 6" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
@@ -98,33 +100,32 @@
       </div>
 
       <div class="mini-img">
-        <img id="thumb-1" class="thumb selected" src="/images/image-product-1-thumbnail.jpg">
-        <img id="thumb-2" class="thumb" src="/images/image-product-2-thumbnail.jpg">
-        <img id="thumb-3" class="thumb" src="/images/image-product-3-thumbnail.jpg">
-        <img id="thumb-4" class="thumb" src="/images/image-product-4-thumbnail.jpg">
+        <img id="thumb-1" class="thumb selected" src="/images/image-product-1-thumbnail.jpg" alt="picture of a white and beige pair of shoes in a dark orange background">
+        <img id="thumb-2" class="thumb" src="/images/image-product-2-thumbnail.jpg" alt="picture of a white and beige pair of shoes on top of two rounded rocks in a dark orange background">
+        <img id="thumb-3" class="thumb" src="/images/image-product-3-thumbnail.jpg" alt="picture of a white and beige shoe on top of two rounded rocks in a dark orange background half folded">
+        <img id="thumb-4" class="thumb" src="/images/image-product-4-thumbnail.jpg" alt="picture of a shoe on it side on top of two rounded rocks">
       </div>
     </aside>
   
     <section>
-      <h6>Sneaker Company</h6>
-      <h1>Fall Limited Edition Sneakers</h1>
-      <p> 
-        These low-profile sneakers are your perfect casual wear companion. Featuring a 
-        durable rubber outer sole, they’ll withstand everything the weather can offer.
+      <h6 id="brand">A</h6>
+      <h1 id="model"></h1>
+      <p id="description"> 
+        
       </p>
       <div class="unit-price">
-        <h3>$<span class="price">125.00</span><span class="discount">50%</span></h3>
-        <h6 class="total-price">$250.00</h6>
+        <h3>$<span id="price"></span><span id="discount"></span></h3>
+        <h6 id="total-price"></h6>
       </div>
 
       <div class="section-btns">
-        <div id="quant-add-cart">
-          <img id="icon-plus" src="/images/icon-plus.svg">
-          <h5>0</h5>
-          <img id="icon-minus" src="/images/icon-minus.svg">
+        <div class="quant-add-cart">
+          <img id="icon-plus" src="/images/icon-plus.svg" alt="drawing of a plus sign">
+          <h5 id="quant-to-add">0</h5>
+          <img id="icon-minus" src="/images/icon-minus.svg" alt="drawing of a minus sign">
         </div>
         <button id="btn-add-cart">
-          <img src="/images/icon-cart-btn.svg">
+          <img src="/images/icon-cart-btn.svg" alt="drawing of a shopping cart">
            Add to Cart
         </button>
       </div>

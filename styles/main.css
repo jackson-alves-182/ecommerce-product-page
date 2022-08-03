@@ -190,10 +190,10 @@ section h3{
   font-size: 2.5rem;
 }
 
-section .price{
+section #price{
   margin-right:1.2rem;
 }
-section .discount{
+section #discount{
   font-size:1.3rem;
 
   color:var(--orange);
@@ -203,7 +203,7 @@ section .discount{
   border-radius:3px;
 }
 
-section .total-price{
+section #total-price{
   color:var(--grayish-blue);
 
   text-decoration: line-through;
@@ -218,7 +218,7 @@ section .total-price{
   gap:2rem;
 }
 
-#quant-add-cart{
+.quant-add-cart{
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -229,8 +229,13 @@ section .total-price{
 
   background:var(--light-grayish-blue);
 }
-#quant-add-cart > img{
+.quant-add-cart > img{
   object-fit:none;
+}
+
+#icon-plus:hover,
+#icon-minus:hover{
+  cursor:pointer;
 }
 
 section #btn-add-cart{
@@ -246,6 +251,23 @@ section #btn-add-cart img{
   width:1.5rem;
 
   margin-right:5px;
+}
+
+section #btn-add-cart:hover{
+  cursor:pointer;
+
+  transform: scale(1.01);
+  opacity:0.8;
+}
+section #btn-add-cart:{
+  transform: scale(1.2);
+}
+
+
+@media(max-height:850px){
+  .main-selection .main-img-container{
+    height:45rem;
+  }
 }
 
 @media(min-width:900px){

@@ -82,7 +82,8 @@ nav{
 .cart{
   position:relative;
 }
-.quant-product-cart{
+
+.cart-full{
   position:absolute;
   top:-2px;
   right:-2px;
@@ -98,8 +99,9 @@ nav{
   text-align:center;
 
   border-radius:4px;
-}
 
+  animation:showsUp 0.5s;
+}
 .cart-info{
   position:absolute;
   top:5rem;
@@ -163,7 +165,7 @@ nav{
   line-height:1.9rem;
   color:var(--dark-grayish-blue);
 }
-.cart-total{
+#cart-total{
   font-weight:700;
   color:black;
 }

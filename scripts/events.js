@@ -5,6 +5,12 @@ import{
   cartIcon,
   cartInfo,
   cartProduct,
+  cartNotification,
+  cartDescription,
+  cartPrice,
+  cartQuant,
+  cartTotal,
+  wipeCart,
   modal,
   closeMod,
   imagesContainer,
@@ -14,10 +20,40 @@ import{
   thumb1,
   thumb2,
   thumb3,
-  thumb4
+  thumb4,
+  btnPlusCart,
+  btnMinusCart,
+  quantToCart,
+  btnAddCart,
+  brand,
+  model,
+  description,
+  price,
+  discount,
+  totalPrice
 } from "./elements.js"
 
 export default function(){
+
+  var quantAddCart = document.querySelector('#quant-to-add');
+
+  const shoe = {
+    brand:"Sneaker Company",
+    model:"Fall Limited Edition Sneakers",
+    description:"These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+    price:null,
+    discount:50,
+    totalPrice:250.00
+  }
+
+  window.addEventListener('load', function(){
+    brand.textContent = shoe.brand;
+    model.textContent = shoe.model;
+    description.textContent = shoe.description;
+    price.textContent = parseFloat((shoe.totalPrice * shoe.discount) / 100).toPrecision(5);
+    discount.textContent = `${shoe.discount}\%`;
+    totalPrice.textContent = `\$${parseFloat(shoe.totalPrice).toPrecision(5)}`;
+  })
 
   menu.addEventListener('click', function(){
     openMenu();
@@ -31,7 +67,15 @@ export default function(){
     
     checkCart(quantCart);
   })
-  cartInfo.addEventListener('mouseout', function(){
+  cartInfo.addEventListener('click', function(){
+    window.addEventListener('click',function(){
+      cartInfo.classList.add('hide');
+    })
+  })
+  wipeCart.addEventListener('click', function(){
+    cartNotification.textContent = "";
+    cartNotification.classList.remove('cart-full');
+
     cartInfo.classList.add('hide');
   })
 
@@ -62,7 +106,6 @@ export default function(){
     closeModal();
   })
 
-
   thumb1.addEventListener('click', function(){
     selectedImage(thumb1);
   })
@@ -75,6 +118,40 @@ export default function(){
   thumb4.addEventListener('click', function(){
     selectedImage(thumb4);
   })
+
+  btnPlusCart.addEventListener('click', function(){
+    quantAddCart.textContent = Number(quantAddCart.textContent) + 1;
+  })
+
+  btnMinusCart.addEventListener('click', function(){
+    if(quantAddCart.textContent > 0){
+      quantAddCart.textContent = Number(quantAddCart.textContent) - 1;
+    }
+  })
+
+  btnAddCart.addEventListener('click', function(){
+
+    if(quantToCart.textContent > 0){
+      addToCart();
+    }
+   
+  })
+
+
+
+  function addToCart(){
+
+    cartDescription.textContent = shoe.model;
+    cartPrice.textContent = parseFloat((shoe.totalPrice * shoe.discount) / 100).toPrecision(5);
+    cartQuant.textContent = quantToCart.textContent;
+    cartTotal.textContent = `\$${parseFloat(cartPrice.textContent * cartQuant.textContent).toPrecision(5)}`;
+
+    cartNotification.textContent = cartQuant.textContent;
+    cartNotification.classList.add('cart-full');
+    document.querySelector('#img-cart').src = thumb1.src;
+    quantToCart.textContent = 0;
+
+  }
 
   function navigationArrow(status){
     var currentImage = mainImage.src;
@@ -150,6 +227,7 @@ export default function(){
 
     document.querySelector('.menu-container').appendChild(menuIcon);
     menuIcon.style.display = "flex";
+
     document.querySelector('.menu-container').classList.remove('toggle-menu');
   }
   function closeMenu(){
@@ -172,7 +250,6 @@ export default function(){
     modal.style.display = "block";
     closeMod.style.display = "block";
   }
-
   function closeModal(){
     imagesContainer.classList.remove('main-selection');
     document.querySelector('#main-container').prepend(imagesContainer);
@@ -185,10 +262,11 @@ export default function(){
     var widthOut = window.innerWidth;
     if((widthOut > 624 )&&(menuIcon.style.display == "none")){
       menuIcon.style.display = "flex";
+      
     }
     else if((widthOut < 625)&&(menuIcon.style.display == "flex")){
       closeMenu();
-      menuIcon.style.display = "none";
+      menuIcon.style.display = "none"; 
     }
   }
 
