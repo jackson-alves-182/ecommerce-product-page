@@ -1,4 +1,5 @@
 import{
+  body,
   menu,
   menuIcon,
   closeMenuIcon,
@@ -38,6 +39,7 @@ export default function(){
   var quantAddCart = document.querySelector('#quant-to-add');
 
   const shoe = {
+    image:"/images/image-product-1-thumbnail.jpg",
     brand:"Sneaker Company",
     model:"Fall Limited Edition Sneakers",
     description:"These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
@@ -142,7 +144,7 @@ export default function(){
 
     cartNotification.textContent = cartQuant.textContent;
     cartNotification.classList.add('cart-full');
-    document.querySelector('#img-cart').src = thumb1.src;
+    document.querySelector('#img-cart').src = shoe.image;
     quantToCart.textContent = 0;
 
   }
@@ -272,11 +274,7 @@ export default function(){
     }
     else{
       cartInfo.classList.remove('hide');
-      console.log("HOJAOJSAOSA")
     }
-    
-    
-    
   }
 
   window.addEventListener('resize', resizeCheck);

@@ -79,6 +79,15 @@ nav{
   width:2.3rem;
 }
 
+#icon-cart:hover{
+  cursor:pointer;
+  transform: scale(1.2);
+}
+
+#icon-cart:active{
+  transform: scale(1.0);
+}
+
 .cart{
   position:relative;
 }
@@ -168,6 +177,14 @@ nav{
 #cart-total{
   font-weight:700;
   color:black;
+}
+
+#wipe-cart:hover{
+  cursor:pointer;
+  transform: scale(1.2);
+}
+#wipe-cart:active{
+  transform: scale(1.0);
 }
 
 #checkout-btn{

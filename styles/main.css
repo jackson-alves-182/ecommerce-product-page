@@ -236,6 +236,12 @@ section #total-price{
 #icon-plus:hover,
 #icon-minus:hover{
   cursor:pointer;
+  transform: scale(1.3);
+}
+#icon-plus:active,
+#icon-minus:active{
+  cursor:pointer;
+  transform: scale(1.0);
 }
 
 section #btn-add-cart{
@@ -258,11 +264,12 @@ section #btn-add-cart:hover{
 
   transform: scale(1.01);
   opacity:0.8;
+  box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.5);
 }
-section #btn-add-cart:{
-  transform: scale(1.2);
+section #btn-add-cart:active{
+  transform: scale(1.0);
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.3);
 }
-
 
 @media(max-height:850px){
   .main-selection .main-img-container{

@@ -1,3 +1,4 @@
+const body = document.querySelector('#body-content');
 
 const menu = document.querySelector('.menu');
 const menuIcon = document.querySelector('.header-list');
@@ -40,6 +41,7 @@ const totalPrice = document.querySelector('#total-price');
 
 
 export{
+  body,
   menu,
   menuIcon,
   closeMenuIcon,
