@@ -33,13 +33,14 @@ header{
   box-shadow:1px 1px 0px 1000px rgba(0,0,0,0.5);
   
   padding:2rem 2rem;
-
+}
+.menu-container[open]{
   animation: left-to-right 0.7s forwards;
 }
-.toggle-menu{
+.menu-container[close]{
   animation: right-to-left 1s forwards;
 }
-
+  
 header > img{
   height:1.7rem;
 }
@@ -69,6 +70,19 @@ nav{
 .header-list li:hover{
   border-bottom:4px solid var(--orange);
   cursor:pointer;
+}
+
+.modal-to-close-popup{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  
+  animation:showsUp ease-in 0.5s;
 }
 
 .info-user{
@@ -115,6 +129,7 @@ nav{
   position:absolute;
   top:5rem;
   left:-15rem;
+
   z-index: 5;
 
   width:28rem;
@@ -129,8 +144,14 @@ nav{
 
   box-shadow:1px 15px 20px 1px rgba(0,0,0,0.2);
 
-  animation: show-from-cart 1s;
 }
+.cart-info[open]{
+  animation: show-from-cart 0.8s;
+}
+.cart-info[close]{
+  animation: show-from-cart 0.8s reverse;
+}
+
 .cart-info h3{
   padding:1.5rem 0 1.8rem 1.5rem;
 
@@ -139,6 +160,8 @@ nav{
 
   border-bottom:2px solid var(--light-grayish-blue);
 }
+
+
 .cart-product{
   display:grid;
   gap:1.5rem;
@@ -218,6 +241,9 @@ nav{
     width:100%;
     justify-self: unset;
   }
+  .cart-info{
+    top:5rem;
+    left:-20rem;
 }
 
 @media(max-width:625px){
@@ -257,14 +283,17 @@ nav{
   .info-user{
     justify-self: flex-end;
   }
-
   .cart-info{
     position:fixed;
     left: 50%;
     top: 20%;
     transform: translate(-50%,-20%);
-
-    animation:comesUp 1s;
+  }
+  .cart-info[open]{
+    animation:comesUp 0.8s;
+  }
+  .cart-info[close]{
+    animation:comesUp 0.8s reverse;
   }
 }
 

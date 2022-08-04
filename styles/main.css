@@ -27,6 +27,10 @@ aside{
   right:1rem;
 }
 
+.close-modal:hover{
+  cursor:pointer;
+}
+
 .main-img-container,
 .mini-img{
   display:flex;

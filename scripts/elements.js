@@ -1,9 +1,8 @@
-const body = document.querySelector('#body-content');
-
 const menu = document.querySelector('.menu');
 const menuIcon = document.querySelector('.header-list');
 const closeMenuIcon = document.querySelector('.close-menu');
 
+const modalCartInfo = document.querySelector('.modal-to-close-popup');
 const cartIcon = document.querySelector('#icon-cart');
 const cartInfo = document.querySelector('.cart-info');
 const cartProduct = document.querySelector('.cart-product');
@@ -41,10 +40,10 @@ const totalPrice = document.querySelector('#total-price');
 
 
 export{
-  body,
   menu,
   menuIcon,
   closeMenuIcon,
+  modalCartInfo,
   cartIcon,
   cartInfo,
   cartProduct,

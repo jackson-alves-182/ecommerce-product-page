@@ -1,8 +1,8 @@
 import{
-  body,
   menu,
   menuIcon,
   closeMenuIcon,
+  modalCartInfo,
   cartIcon,
   cartInfo,
   cartProduct,
@@ -37,6 +37,7 @@ import{
 export default function(){
 
   var quantAddCart = document.querySelector('#quant-to-add');
+  var auxCloseModal = 0;
 
   const shoe = {
     image:"/images/image-product-1-thumbnail.jpg",
@@ -64,17 +65,23 @@ export default function(){
     closeMenu();
   })
 
+
   cartIcon.addEventListener('click', function(){
     var quantCart = document.querySelector('.quant-cart-notification');
-    
-    checkCart(quantCart);
-  })
+    auxCloseModal = 1;
 
+    checkCart(quantCart);
+    openModal(auxCloseModal);
+  })
   wipeCart.addEventListener('click', function(){
     cartNotification.textContent = "";
     cartNotification.classList.remove('cart-full');
 
     cartInfo.classList.add('hide');
+    closeModal(auxCloseModal);
+  })
+  modalCartInfo.addEventListener('click', function(){
+    closeModal(auxCloseModal);
   })
 
   iconPrevious.addEventListener('click', function(){
@@ -224,47 +231,81 @@ export default function(){
     document.querySelector('.menu-container').appendChild(menuIcon);
     menuIcon.style.display = "flex";
 
-    document.querySelector('.menu-container').classList.remove('toggle-menu');
+    document.querySelector('.menu-container').setAttribute('open', "");
+    document.querySelector('.menu-container').addEventListener('animationend', function(){
+      document.querySelector('.menu-container').removeAttribute('open', "");
+    }, {once: true})
   }
   function closeMenu(){
-    document.querySelector('.menu-container').classList.add('toggle-menu');
     document.querySelector('.navi').prepend(menuIcon);
     menuIcon.style.display = "none";
 
     //hide the mobile menu and change the display to none, after the animation end
-    document.querySelector('.toggle-menu').addEventListener('animationend', function(){
+    document.querySelector('.menu-container').setAttribute('close', "");
+
+    document.querySelector('.menu-container').addEventListener('animationend', function(){
       document.querySelector('.menu-container').classList.add('hide');
+      document.querySelector('.menu-container').removeAttribute('close', "");
     }, {once: true})
-
   }
 
-  function openModal(){
+  function openModal(auxCloseModal){
+    
+    if(auxCloseModal == 1){
 
-    imagesContainer.classList.add('main-selection');
-    modal.appendChild(imagesContainer);
+      cartInfo.setAttribute('open', "");
+      cartInfo.addEventListener('animationend', function(){
+        modalCartInfo.style.display = "block";
 
-    modal.style.display = "block";
-    closeMod.style.display = "block";
+
+        cartInfo.removeAttribute('open',"");
+      }, {once:true})
+     
+    }
+    else{
+      imagesContainer.classList.add('main-selection');
+      modal.appendChild(imagesContainer);
+      modal.style.display = "block";
+      closeMod.style.display = "block";
+    }
   }
-  function closeModal(){
-    imagesContainer.classList.remove('main-selection');
-    document.querySelector('#main-container').prepend(imagesContainer);
 
-    modal.style.display = "none";
-    closeMod.style.display = "none";
+  function closeModal(auxCloseModal){
+
+    if(auxCloseModal == 1){
+      cartInfo.setAttribute('close', "");
+      cartInfo.addEventListener('animationend', function(){
+        cartInfo.classList.add('hide');  
+        modalCartInfo.style.display = "none";
+        
+        cartInfo.removeAttribute('close',"");
+        auxCloseModal == 0;
+      },{once:true})
+   
+    }
+    else{
+      imagesContainer.classList.remove('main-selection');
+      document.querySelector('#main-container').prepend(imagesContainer);
+      modal.style.display = "none";
+      closeMod.style.display = "none";
+    }
   }
 
   function resizeCheck(){
     var widthOut = window.innerWidth;
+
     if((widthOut > 624 )&&(menuIcon.style.display == "none")){
-      menuIcon.style.display = "flex";
-      
+      menuIcon.style.display = "flex"; 
     }
     else if((widthOut < 625)&&(menuIcon.style.display == "flex")){
-      closeMenu();
       menuIcon.style.display = "none"; 
-    }
   }
+  if(document.querySelector('.menu-container').classList.contains('hide')){
+  }
+  else{
+    closeMenu();
+  }  
+}
 
   function checkCart(quantCart){
     
