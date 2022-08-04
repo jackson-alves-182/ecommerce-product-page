@@ -161,7 +161,6 @@ nav{
   border-bottom:2px solid var(--light-grayish-blue);
 }
 
-
 .cart-product{
   display:grid;
   gap:1.5rem;
@@ -244,6 +243,7 @@ nav{
   .cart-info{
     top:5rem;
     left:-20rem;
+  }
 }
 
 @media(max-width:625px){
