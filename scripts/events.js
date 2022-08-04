@@ -69,15 +69,15 @@ export default function(){
   cartIcon.addEventListener('click', function(){
     var quantCart = document.querySelector('.quant-cart-notification');
     auxCloseModal = 1;
-
+    
     checkCart(quantCart);
     openModal(auxCloseModal);
   })
   wipeCart.addEventListener('click', function(){
+    auxCloseModal = 1;
     cartNotification.textContent = "";
     cartNotification.classList.remove('cart-full');
-
-    cartInfo.classList.add('hide');
+    
     closeModal(auxCloseModal);
   })
   modalCartInfo.addEventListener('click', function(){
@@ -135,14 +135,13 @@ export default function(){
   })
 
   btnAddCart.addEventListener('click', function(){
-
-    if(quantToCart.textContent > 0){
+    if(quantToCart.textContent != 0){
       addToCart();
     }
-   
   })
 
   function addToCart(){
+   
 
     cartDescription.textContent = shoe.model;
     cartPrice.textContent = parseFloat((shoe.totalPrice * shoe.discount) / 100).toPrecision(5);
@@ -151,7 +150,10 @@ export default function(){
 
     cartNotification.textContent = cartQuant.textContent;
     cartNotification.classList.add('cart-full');
+    
+    
     document.querySelector('#img-cart').src = shoe.image;
+    
     quantToCart.textContent = 0;
 
   }
@@ -274,10 +276,11 @@ export default function(){
 
     if(auxCloseModal == 1){
       cartInfo.setAttribute('close', "");
+      console.log("SAUHUHSAUHSA")
       cartInfo.addEventListener('animationend', function(){
         cartInfo.classList.add('hide');  
         modalCartInfo.style.display = "none";
-        
+       
         cartInfo.removeAttribute('close',"");
         auxCloseModal == 0;
       },{once:true})
@@ -300,7 +303,7 @@ export default function(){
     else if((widthOut < 625)&&(menuIcon.style.display == "flex")){
       menuIcon.style.display = "none"; 
   }
-  
+
   if(document.querySelector('.menu-container').classList.contains('hide')){
   }
   else{
@@ -309,12 +312,17 @@ export default function(){
 }
 
   function checkCart(quantCart){
-    
+
     if(quantCart.textContent == 0){
-      cartProduct.innerHTML = "<div class='empty-cart'>Your cart is empty</div>";
       cartInfo.classList.remove('hide');
+
+      document.querySelector('.empty-cart').style.display = "grid";
+      document.querySelector('.full-cart').style.display = "none";
     }
     else{
+      document.querySelector('.full-cart').style.display = "grid";
+
+      document.querySelector('.empty-cart').style.display = "none";
       cartInfo.classList.remove('hide');
     }
   }
