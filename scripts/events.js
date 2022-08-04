@@ -258,8 +258,7 @@ export default function(){
       cartInfo.setAttribute('open', "");
       cartInfo.addEventListener('animationend', function(){
         modalCartInfo.style.display = "block";
-
-
+        
         cartInfo.removeAttribute('open',"");
       }, {once:true})
      

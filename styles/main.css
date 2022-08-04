@@ -331,7 +331,7 @@ section #btn-add-cart:active{
   height:350px;
 
   object-fit:cover;
-  object-position: center;
+  object-position: top;
  }
  .icon-container{
   display:grid;
