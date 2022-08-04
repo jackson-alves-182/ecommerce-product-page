@@ -300,6 +300,7 @@ export default function(){
     else if((widthOut < 625)&&(menuIcon.style.display == "flex")){
       menuIcon.style.display = "none"; 
   }
+  
   if(document.querySelector('.menu-container').classList.contains('hide')){
   }
   else{
