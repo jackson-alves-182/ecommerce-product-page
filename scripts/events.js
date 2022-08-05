@@ -79,6 +79,9 @@ export default function(){
     cartNotification.classList.remove('cart-full');
     
     closeModal(auxCloseModal);
+           
+    cartIcon.removeAttribute('full', "");
+    cartNotification.removeAttribute('full',"");
   })
   modalCartInfo.addEventListener('click', function(){
     closeModal(auxCloseModal);
@@ -137,6 +140,8 @@ export default function(){
   btnAddCart.addEventListener('click', function(){
     if(quantToCart.textContent != 0){
       addToCart();
+      cartIcon.setAttribute('full', "");
+      cartNotification.setAttribute('full',"");
     }
   })
 
@@ -275,11 +280,10 @@ export default function(){
 
     if(auxCloseModal == 1){
       cartInfo.setAttribute('close', "");
-      console.log("SAUHUHSAUHSA")
       cartInfo.addEventListener('animationend', function(){
         cartInfo.classList.add('hide');  
         modalCartInfo.style.display = "none";
-       
+
         cartInfo.removeAttribute('close',"");
         auxCloseModal == 0;
       },{once:true})

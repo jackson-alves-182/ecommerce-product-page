@@ -97,15 +97,18 @@ nav{
   cursor:pointer;
   transform: scale(1.2);
 }
-
 #icon-cart:active{
   transform: scale(1.0);
 }
-
+#icon-cart[full]{
+  animation:hop 1s linear infinite;
+}
 .cart{
   position:relative;
 }
-
+.quant-cart-notification[full]{
+  animation:tilt 1s linear infinite;
+}
 .cart-full{
   position:absolute;
   top:-2px;
@@ -351,3 +354,33 @@ nav{
     transform:translateY() scale(1);
   }
 }
+
+@keyframes hop{
+ 0%{
+  transform: translateY(0);
+ }
+ 25%{
+  transform: translateY(-5px);
+ }
+ 50%{
+  transform: translateY(0);
+ }
+ 75%{
+  transform: translateY(-5px);
+ }
+}
+
+@keyframes tilt{
+  0%{
+    transform: translateY(0);
+   }
+   25%{
+    transform: translateY(-5px);
+   }
+   50%{
+    transform: translateY(0);
+   }
+   75%{
+    transform: translateY(-5px);
+   }
+ }
