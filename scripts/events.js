@@ -107,7 +107,7 @@ export default function(){
     })
   })
 
-  mainImage.addEventListener('dblclick', function(){
+  mainImage.addEventListener('click', function(){
     openModal();
   })
    closeMod.addEventListener('click', function(){
