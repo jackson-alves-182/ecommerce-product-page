@@ -1,3 +1,5 @@
+
+
 import{
   menu,
   menuIcon,
@@ -34,7 +36,7 @@ import{
   totalPrice
 } from "./elements.js"
 
-export default function(){
+export default function(views){
 
   var quantAddCart = document.querySelector('#quant-to-add');
   var auxCloseModal = 0;
@@ -89,7 +91,7 @@ export default function(){
 
   iconPrevious.addEventListener('click', function(){
     var status = "previous";
-    navigationArrow(status);
+    views.navigationArrow(status);
 
     mainImage.classList.add('left-image');
     
@@ -99,7 +101,7 @@ export default function(){
   })
   iconNext.addEventListener('click', function(){
     var status = "next";
-    navigationArrow(status);
+    views.navigationArrow(status);
     mainImage.classList.add('right-image');
 
     mainImage.addEventListener('animationend', function(){
@@ -145,91 +147,6 @@ export default function(){
     }
   })
 
-  function addToCart(){
-   
-
-    cartDescription.textContent = shoe.model;
-    cartPrice.textContent = parseFloat((shoe.totalPrice * shoe.discount) / 100).toPrecision(5);
-    cartQuant.textContent = quantToCart.textContent;
-    cartTotal.textContent = `\$${parseFloat(cartPrice.textContent * cartQuant.textContent).toPrecision(5)}`;
-
-    cartNotification.textContent = cartQuant.textContent;
-    cartNotification.classList.add('cart-full');
-    
-    
-    document.querySelector('#img-cart').src = shoe.image;
-    
-    quantToCart.textContent = 0;
-
-  }
-
-  function navigationArrow(status){
-    var currentImage = mainImage.src;
-
-    var countString = currentImage.length;
-    countString = countString - 27;
-    currentImage = currentImage.slice(countString);
-
-    countString = currentImage.slice(22, 23);
-
-    if((status == "previous")&&(countString > 1  && countString <= 4)){ 
-      previousImage(currentImage ,countString);
-    }
-    else if((status == "next")&&(countString >= 1  && countString <= 3)){
-      nextImage(currentImage, countString); 
-    }
-  }
- 
-  function previousImage(currentImage ,countString){
-    var auxCount = countString;
-
-    currentImage = currentImage.replace(countString, Number(auxCount) - 1);
-
-    var thumbSelection = (Number(auxCount) - 1) - 1;
-    selection(thumbSelection);
-
-    mainImage.src = currentImage;
-    countString = auxCount - 1;
-  }
-
-  function nextImage(currentImage ,countString){
-    var auxCount = countString;
-      
-    currentImage = currentImage.replace(countString, Number(auxCount) + 1);
-   
-    var thumbSelection = (Number(auxCount) + 1) - 1;
-    selection(thumbSelection);
-
-    mainImage.src = currentImage;
-
-    countString = auxCount + 1;
-  }
-
-  function selectedImage(thumb){
-    var currentImage = thumb.src;
-    var countString = currentImage.length;
-
-    countString = countString - 37;
-    currentImage = currentImage.slice(countString);
-
-    currentImage = currentImage.slice(1,23) + ".jpg";
-    mainImage.src = currentImage;
-
-    selection(thumb);
-  }
-
-  function selection(thumb){
-    for(var i=0; i<4; i++){
-      document.querySelectorAll('.thumb')[i].classList.remove('selected');
-    }
-
-    if(thumb >= 0 && thumb < 4){
-      document.querySelectorAll('.thumb')[thumb].classList.add('selected');
-    }
-    else{
-      thumb.classList.add('selected');
-    } 
-  }
 
   function openMenu(){
     document.querySelector('.menu-container').classList.remove('hide');
@@ -254,6 +171,23 @@ export default function(){
       document.querySelector('.menu-container').classList.add('hide');
       document.querySelector('.menu-container').removeAttribute('close', "");
     }, {once: true})
+  }
+
+
+  function addToCart(){
+    cartDescription.textContent = shoe.model;
+    cartPrice.textContent = parseFloat((shoe.totalPrice * shoe.discount) / 100).toPrecision(5);
+    cartQuant.textContent = quantToCart.textContent;
+    cartTotal.textContent = `\$${parseFloat(cartPrice.textContent * cartQuant.textContent).toPrecision(5)}`;
+
+    cartNotification.textContent = cartQuant.textContent;
+    cartNotification.classList.add('cart-full');
+    
+    
+    document.querySelector('#img-cart').src = shoe.image;
+    
+    quantToCart.textContent = 0;
+
   }
 
   function openModal(auxCloseModal){
