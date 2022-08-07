@@ -69,7 +69,7 @@ export default function(views){
     auxCloseModal = 1;
     
     checkCart(quantCart);
-    openModal(auxCloseModal);
+    views.openModal(auxCloseModal);
   })
   wipeCart.addEventListener('click', function(){
     auxCloseModal = 1;
@@ -88,41 +88,32 @@ export default function(views){
   iconPrevious.addEventListener('click', function(){
     var status = "previous";
     views.navigationArrow(status);
-
-    mainImage.classList.add('left-image');
-    
-    mainImage.addEventListener('animationend', function(){
-      mainImage.classList.remove('left-image');
-    })
+    views.slideLeftAnimation();
   })
   iconNext.addEventListener('click', function(){
     var status = "next";
     views.navigationArrow(status);
-    mainImage.classList.add('right-image');
-
-    mainImage.addEventListener('animationend', function(){
-      mainImage.classList.remove('right-image');
-    })
+    views.slideRightAnimation();
   })
 
   mainImage.addEventListener('click', function(){
-    openModal();
+    views.openModal();
   })
    closeMod.addEventListener('click', function(){
     closeModal();
   })
 
   thumb1.addEventListener('click', function(){
-    selectedImage(thumb1);
+    views.selectThumbImage(thumb1);
   })
   thumb2.addEventListener('click', function(){
-    selectedImage(thumb2);
+    views.selectThumbImage(thumb2);
   })
   thumb3.addEventListener('click', function(){
-    selectedImage(thumb3);
+    views.selectThumbImage(thumb3);
   })
   thumb4.addEventListener('click', function(){
-    selectedImage(thumb4);
+    views.selectThumbImage(thumb4);
   })
 
   btnPlusCart.addEventListener('click', function(){
@@ -143,10 +134,6 @@ export default function(views){
     }
   })
 
-
-
-
-
   function addToCart(){
     cartDescription.textContent = shoe.model;
     cartPrice.textContent = parseFloat((shoe.totalPrice * shoe.discount) / 100).toPrecision(5);
@@ -163,25 +150,7 @@ export default function(views){
 
   }
 
-  function openModal(auxCloseModal){
-    
-    if(auxCloseModal == 1){
 
-      cartInfo.setAttribute('open', "");
-      cartInfo.addEventListener('animationend', function(){
-        modalCartInfo.style.display = "block";
-        
-        cartInfo.removeAttribute('open',"");
-      }, {once:true})
-     
-    }
-    else{
-      imagesContainer.classList.add('main-selection');
-      modal.appendChild(imagesContainer);
-      modal.style.display = "block";
-      closeMod.style.display = "block";
-    }
-  }
 
   function closeModal(auxCloseModal){
 

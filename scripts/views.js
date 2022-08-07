@@ -1,8 +1,12 @@
 export default function({
   menuContainer,
   mainImage,
-  closeMenuIcon,
-  menuIcon
+  menuIcon,
+  imagesContainer,
+  modal,
+  closeMod,
+  cartInfo,
+  modalCartInfo
 }){
 
   function navigationArrow(status){
@@ -50,10 +54,12 @@ export default function({
     countString = auxCount + 1;
   }
 
-  function selectedImage(thumb){
+  function selectThumbImage(thumb){
     var currentImage = thumb.src;
     var countString = currentImage.length;
 
+    /*Similar to the navigation part, but now i remove also the "thumbnail" 
+    from the src*/
     countString = countString - 37;
     currentImage = currentImage.slice(countString);
 
@@ -78,17 +84,15 @@ export default function({
       thumb.classList.remove('selected');
     })
   }
-  
 
   function openMenu(){
     menuContainer.classList.remove('hide');
-    closeMenuIcon.classList.remove('hide');
 
     menuContainer.appendChild(menuIcon);
     menuIcon.style.display = "flex";
-    openAnimation();
+    openMenuAnimation();
   }
-  function openAnimation(){
+  function openMenuAnimation(){
     menuContainer.setAttribute('open', "");
     menuContainer.addEventListener('animationend', function(){
     menuContainer.removeAttribute('open', "");
@@ -99,9 +103,9 @@ export default function({
     document.querySelector('.navi').prepend(menuIcon);
     menuIcon.style.display = "none";
 
-    closeAnimation();
+    closeMenuAnimation();
   }
-  function closeAnimation(){
+  function closeMenuAnimation(){
     //hide the mobile menu and change the display to none, after the animation end
     menuContainer.setAttribute('close', "");
     menuContainer.addEventListener('animationend', function(){
@@ -110,9 +114,57 @@ export default function({
     }, {once: true})
   }
 
+  function slideLeftAnimation(){
+    mainImage.classList.add('left-image');
+    
+    mainImage.addEventListener('animationend', function(){
+      mainImage.classList.remove('left-image');
+    })
+  }
+  function slideRightAnimation(){
+    mainImage.classList.add('right-image');
+
+    mainImage.addEventListener('animationend', function(){
+      mainImage.classList.remove('right-image');
+    })
+  }
+
+    
+  function openModal(auxCloseModal){
+    
+    if(auxCloseModal == 1){
+      openCartModalAnimation();
+    }
+    else{
+      modal.appendChild(imagesContainer);
+      openMainModalAnimation();
+    }
+  }
+  function openCartModalAnimation(){
+    cartInfo.setAttribute('open', "");
+    cartInfo.addEventListener('animationend', function(){
+      modalCartInfo.style.display = "block";
+      
+      cartInfo.removeAttribute('open',"");
+    }, {once:true})
+  }
+  function openMainModalAnimation(){
+    imagesContainer.classList.add('main-selection');
+    modal.style.display = "block";
+    closeMod.style.display = "block";
+  }
+
+
+
+
+
   return{
     navigationArrow,
     openMenu,
-    closeMenu
+    closeMenu,
+    selectThumbImage,
+    slideLeftAnimation,
+    slideRightAnimation,
+    openModal
   }
 }

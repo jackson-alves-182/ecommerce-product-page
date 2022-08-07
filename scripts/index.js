@@ -4,15 +4,23 @@ import Views from "./views.js"
 import{
   menuContainer,
   mainImage,
-  closeMenuIcon,
-  menuIcon
+  menuIcon,
+  imagesContainer,
+  modal,
+  closeMod,
+  cartInfo,
+  modalCartInfo
 } from "./elements.js"
 
 const views = Views({
   menuContainer,
   mainImage,
-  closeMenuIcon,
-  menuIcon
+  menuIcon,
+  imagesContainer,
+  modal,
+  closeMod,
+  cartInfo,
+  modalCartInfo
 });
 
 const events = Events(views);
