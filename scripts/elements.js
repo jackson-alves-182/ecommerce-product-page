@@ -1,6 +1,7 @@
 const menu = document.querySelector('.menu');
 const menuIcon = document.querySelector('.header-list');
 const closeMenuIcon = document.querySelector('.close-menu');
+const menuContainer = document.querySelector('.menu-container')
 
 const modalCartInfo = document.querySelector('.modal-to-close-popup');
 const cartIcon = document.querySelector('#icon-cart');
@@ -43,6 +44,7 @@ export{
   menu,
   menuIcon,
   closeMenuIcon,
+  menuContainer,
   modalCartInfo,
   cartIcon,
   cartInfo,

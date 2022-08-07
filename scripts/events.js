@@ -1,5 +1,4 @@
 
-
 import{
   menu,
   menuIcon,
@@ -7,7 +6,6 @@ import{
   modalCartInfo,
   cartIcon,
   cartInfo,
-  cartProduct,
   cartNotification,
   cartDescription,
   cartPrice,
@@ -61,13 +59,11 @@ export default function(views){
   })
 
   menu.addEventListener('click', function(){
-    openMenu();
+    views.openMenu();
   })
   closeMenuIcon.addEventListener('click', function(){
-    closeMenu();
+    views.closeMenu();
   })
-
-
   cartIcon.addEventListener('click', function(){
     var quantCart = document.querySelector('.quant-cart-notification');
     auxCloseModal = 1;
@@ -148,30 +144,7 @@ export default function(views){
   })
 
 
-  function openMenu(){
-    document.querySelector('.menu-container').classList.remove('hide');
-    closeMenuIcon.classList.remove('hide');
 
-    document.querySelector('.menu-container').appendChild(menuIcon);
-    menuIcon.style.display = "flex";
-
-    document.querySelector('.menu-container').setAttribute('open', "");
-    document.querySelector('.menu-container').addEventListener('animationend', function(){
-      document.querySelector('.menu-container').removeAttribute('open', "");
-    }, {once: true})
-  }
-  function closeMenu(){
-    document.querySelector('.navi').prepend(menuIcon);
-    menuIcon.style.display = "none";
-
-    //hide the mobile menu and change the display to none, after the animation end
-    document.querySelector('.menu-container').setAttribute('close', "");
-
-    document.querySelector('.menu-container').addEventListener('animationend', function(){
-      document.querySelector('.menu-container').classList.add('hide');
-      document.querySelector('.menu-container').removeAttribute('close', "");
-    }, {once: true})
-  }
 
 
   function addToCart(){

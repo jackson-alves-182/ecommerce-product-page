@@ -1,11 +1,18 @@
 import Events from "./events.js"
 import Views from "./views.js"
+
 import{
-  mainImage 
+  menuContainer,
+  mainImage,
+  closeMenuIcon,
+  menuIcon
 } from "./elements.js"
 
 const views = Views({
-  mainImage
+  menuContainer,
+  mainImage,
+  closeMenuIcon,
+  menuIcon
 });
 
 const events = Events(views);

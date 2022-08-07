@@ -1,5 +1,8 @@
 export default function({
-  mainImage
+  menuContainer,
+  mainImage,
+  closeMenuIcon,
+  menuIcon
 }){
 
   function navigationArrow(status){
@@ -23,7 +26,6 @@ export default function({
       nextImage(currentImage, countString); 
     }
   }
-
   function previousImage(currentImage ,countString){
     var auxCount = countString;
 
@@ -78,8 +80,39 @@ export default function({
   }
   
 
+  function openMenu(){
+    menuContainer.classList.remove('hide');
+    closeMenuIcon.classList.remove('hide');
+
+    menuContainer.appendChild(menuIcon);
+    menuIcon.style.display = "flex";
+    openAnimation();
+  }
+  function openAnimation(){
+    menuContainer.setAttribute('open', "");
+    menuContainer.addEventListener('animationend', function(){
+    menuContainer.removeAttribute('open', "");
+    }, {once: true});
+  }
+
+  function closeMenu(){
+    document.querySelector('.navi').prepend(menuIcon);
+    menuIcon.style.display = "none";
+
+    closeAnimation();
+  }
+  function closeAnimation(){
+    //hide the mobile menu and change the display to none, after the animation end
+    menuContainer.setAttribute('close', "");
+    menuContainer.addEventListener('animationend', function(){
+      menuContainer.classList.add('hide');
+      menuContainer.removeAttribute('close', "");
+    }, {once: true})
+  }
 
   return{
-    navigationArrow
+    navigationArrow,
+    openMenu,
+    closeMenu
   }
 }
