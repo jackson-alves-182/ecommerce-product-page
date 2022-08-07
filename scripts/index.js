@@ -1,5 +1,5 @@
 import Events from "./events.js"
-import Views from "./views.js"
+import View from "./view.js"
 
 import{
   menuContainer,
@@ -12,7 +12,7 @@ import{
   modalCartInfo
 } from "./elements.js"
 
-const views = Views({
+const view = View({
   menuContainer,
   mainImage,
   menuIcon,
@@ -23,7 +23,7 @@ const views = Views({
   modalCartInfo
 });
 
-const events = Events(views);
+const events = Events(view);
 
 
 

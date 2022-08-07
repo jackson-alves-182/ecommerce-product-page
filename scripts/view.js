@@ -90,6 +90,7 @@ export default function({
 
     menuContainer.appendChild(menuIcon);
     menuIcon.style.display = "flex";
+
     openMenuAnimation();
   }
   function openMenuAnimation(){
@@ -142,6 +143,7 @@ export default function({
   }
   function openCartModalAnimation(){
     cartInfo.setAttribute('open', "");
+
     cartInfo.addEventListener('animationend', function(){
       modalCartInfo.style.display = "block";
       
@@ -154,9 +156,65 @@ export default function({
     closeMod.style.display = "block";
   }
 
+  
+  function closeModal(auxCloseModal){
+
+    if(auxCloseModal == 1){
+      closeCartModalAnimation();
+      auxCloseModal == 0;
+    }
+    else{
+      document.querySelector('#main-container').prepend(imagesContainer);
+      closeMainModalAnimation();
+    }
+  }
+  function closeCartModalAnimation(){
+    cartInfo.setAttribute('close', "");
+
+    cartInfo.addEventListener('animationend', function(){
+      cartInfo.classList.add('hide');  
+      modalCartInfo.style.display = "none";
+
+      cartInfo.removeAttribute('close',"");
+    },{once:true})
+  }
+  function closeMainModalAnimation(){
+    imagesContainer.classList.remove('main-selection');
+    modal.style.display = "none";
+    closeMod.style.display = "none";
+  }
 
 
+  function resizeCheck(){
+    var widthOut = window.innerWidth;
 
+    if((widthOut > 624 )&&(menuIcon.style.display == "none")){
+      menuIcon.style.display = "flex"; 
+    }
+    else if((widthOut < 625)&&(menuIcon.style.display == "flex")){
+      menuIcon.style.display = "none"; 
+  }
+
+  if(!menuContainer.classList.contains('hide')){
+    closeMenu();
+  }
+}
+
+function checkCart(quantCart){
+
+  if(quantCart.textContent == 0){
+    cartInfo.classList.remove('hide');
+
+    document.querySelector('.empty-cart').style.display = "grid";
+    document.querySelector('.full-cart').style.display = "none";
+  }
+  else{
+    document.querySelector('.full-cart').style.display = "grid";
+
+    document.querySelector('.empty-cart').style.display = "none";
+    cartInfo.classList.remove('hide');
+  }
+}
 
   return{
     navigationArrow,
@@ -165,6 +223,9 @@ export default function({
     selectThumbImage,
     slideLeftAnimation,
     slideRightAnimation,
-    openModal
+    openModal,
+    closeModal,
+    resizeCheck,
+    checkCart
   }
 }

@@ -1,20 +1,16 @@
 
 import{
   menu,
-  menuIcon,
   closeMenuIcon,
   modalCartInfo,
   cartIcon,
-  cartInfo,
   cartNotification,
   cartDescription,
   cartPrice,
   cartQuant,
   cartTotal,
   wipeCart,
-  modal,
   closeMod,
-  imagesContainer,
   mainImage,
   iconPrevious,
   iconNext,
@@ -34,7 +30,7 @@ import{
   totalPrice
 } from "./elements.js"
 
-export default function(views){
+export default function(view){
 
   var quantAddCart = document.querySelector('#quant-to-add');
   var auxCloseModal = 0;
@@ -48,6 +44,7 @@ export default function(views){
     discount:50,
     totalPrice:250.00
   }
+  window.addEventListener('resize', view.resizeCheck);
 
   window.addEventListener('load', function(){
     brand.textContent = shoe.brand;
@@ -59,61 +56,61 @@ export default function(views){
   })
 
   menu.addEventListener('click', function(){
-    views.openMenu();
+    view.openMenu();
   })
   closeMenuIcon.addEventListener('click', function(){
-    views.closeMenu();
+    view.closeMenu();
   })
   cartIcon.addEventListener('click', function(){
     var quantCart = document.querySelector('.quant-cart-notification');
     auxCloseModal = 1;
     
-    checkCart(quantCart);
-    views.openModal(auxCloseModal);
+    view.checkCart(quantCart);
+    view.openModal(auxCloseModal);
   })
   wipeCart.addEventListener('click', function(){
     auxCloseModal = 1;
     cartNotification.textContent = "";
     cartNotification.classList.remove('cart-full');
     
-    closeModal(auxCloseModal);
+    view.closeModal(auxCloseModal);
            
     cartIcon.removeAttribute('full', "");
     cartNotification.removeAttribute('full',"");
   })
   modalCartInfo.addEventListener('click', function(){
-    closeModal(auxCloseModal);
+    view.closeModal(auxCloseModal);
   })
 
   iconPrevious.addEventListener('click', function(){
     var status = "previous";
-    views.navigationArrow(status);
-    views.slideLeftAnimation();
+    view.navigationArrow(status);
+    view.slideLeftAnimation();
   })
   iconNext.addEventListener('click', function(){
     var status = "next";
-    views.navigationArrow(status);
-    views.slideRightAnimation();
+    view.navigationArrow(status);
+    view.slideRightAnimation();
   })
 
   mainImage.addEventListener('click', function(){
-    views.openModal();
+    view.openModal();
   })
    closeMod.addEventListener('click', function(){
-    closeModal();
+    view.closeModal();
   })
 
   thumb1.addEventListener('click', function(){
-    views.selectThumbImage(thumb1);
+    view.selectThumbImage(thumb1);
   })
   thumb2.addEventListener('click', function(){
-    views.selectThumbImage(thumb2);
+    view.selectThumbImage(thumb2);
   })
   thumb3.addEventListener('click', function(){
-    views.selectThumbImage(thumb3);
+    view.selectThumbImage(thumb3);
   })
   thumb4.addEventListener('click', function(){
-    views.selectThumbImage(thumb4);
+    view.selectThumbImage(thumb4);
   })
 
   btnPlusCart.addEventListener('click', function(){
@@ -149,63 +146,6 @@ export default function(views){
     quantToCart.textContent = 0;
 
   }
-
-
-
-  function closeModal(auxCloseModal){
-
-    if(auxCloseModal == 1){
-      cartInfo.setAttribute('close', "");
-      cartInfo.addEventListener('animationend', function(){
-        cartInfo.classList.add('hide');  
-        modalCartInfo.style.display = "none";
-
-        cartInfo.removeAttribute('close',"");
-        auxCloseModal == 0;
-      },{once:true})
-   
-    }
-    else{
-      imagesContainer.classList.remove('main-selection');
-      document.querySelector('#main-container').prepend(imagesContainer);
-      modal.style.display = "none";
-      closeMod.style.display = "none";
-    }
-  }
-
-  function resizeCheck(){
-    var widthOut = window.innerWidth;
-
-    if((widthOut > 624 )&&(menuIcon.style.display == "none")){
-      menuIcon.style.display = "flex"; 
-    }
-    else if((widthOut < 625)&&(menuIcon.style.display == "flex")){
-      menuIcon.style.display = "none"; 
-  }
-
-  if(document.querySelector('.menu-container').classList.contains('hide')){
-  }
-  else{
-    closeMenu();
-  }  
-}
-
-  function checkCart(quantCart){
-
-    if(quantCart.textContent == 0){
-      cartInfo.classList.remove('hide');
-
-      document.querySelector('.empty-cart').style.display = "grid";
-      document.querySelector('.full-cart').style.display = "none";
-    }
-    else{
-      document.querySelector('.full-cart').style.display = "grid";
-
-      document.querySelector('.empty-cart').style.display = "none";
-      cartInfo.classList.remove('hide');
-    }
-  }
-
-  window.addEventListener('resize', resizeCheck);
+  
 }
   
